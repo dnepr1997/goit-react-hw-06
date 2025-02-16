@@ -1,0 +1,13 @@
+.contact {
+  border: solid 1px black;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  /* max-width: 200px; */
+}
+.btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
