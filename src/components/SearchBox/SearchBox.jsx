@@ -1,15 +1,18 @@
+import { useDispatch } from 'react-redux';
 import css from './SearchBox.module.css';
 import { useId } from 'react';
+import { setFilter } from '../../redux/filtersSlice';
 
-export const SearchBox = ({ SearchValue, SearchOnChange }) => {
+export const SearchBox = ({ SearchValue }) => {
   const searchId = useId();
 
-  const hendleClick = event => {
+  const dispatch = useDispatch();
+  const handleClick = event => {
     event.preventDefault();
     console.log(event.target);
   };
   return (
-    <form onSubmit={hendleClick}>
+    <form onSubmit={handleClick}>
       <div className={css.search}>
         <label htmlFor={searchId}>Find contacts by name</label>
         <input
@@ -17,7 +20,7 @@ export const SearchBox = ({ SearchValue, SearchOnChange }) => {
           id={searchId}
           placeholder="Search"
           value={SearchValue}
-          onChange={SearchOnChange}
+          onChange={e => dispatch(setFilter(e.target.value))}
         />
       </div>
     </form>
